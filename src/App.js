@@ -5,12 +5,12 @@ import CartDrawer from './components/Cart/CartDrawer';
 import Cart from './components/Cart/Cart';
 import Backdrop from './components/utility/Backdrop';
 
-
 import './App.css';
 import cardImg from './assets/cart.png';
 
 
 const App = () => {
+
   const [ itemsInCart, setItemsInCart ] = useState([]);
   const [showCart, setShowCart] = useState(false);
 
@@ -30,14 +30,10 @@ const App = () => {
     })
   };
 
-  let totalCost;
-  if(itemsInCart.length){
-    totalCost = itemsInCart.reduce(
-      (acc, item) => acc + item.price * item.quantity,
-    );
-  };
   
-
+    const totalCost = itemsInCart.reduce(
+      (acc, item) => acc + item.price * item.quantity, 0)
+    
 
   const openCart = () => {
     setShowCart(true);
@@ -50,14 +46,18 @@ const App = () => {
   
   return (
     <div className = "App">
+
+      {/* implemmentation for  cart side drawer  */}
       { showCart && <Backdrop onClick={closeCart}/> }
       <CartDrawer show = {showCart}>
-          <Cart itemsInCart={itemsInCart} totalCost={totalCost}/>
+          <Cart itemsInCart={itemsInCart} totalCost={Number(totalCost)}/>
       </CartDrawer>
+
       <header className="App-header">
-        <h1 className="App-header-text">Dreamcast Shop</h1>
+        <h1 className="App-header-text">Inventory</h1>
         <img src = {cardImg} alt="View what is inside your cart" className="App-cartImg" onClick={openCart}/>
       </header>
+
       <main className = "App-shop">
         <div className="App-products">
           {
@@ -74,7 +74,6 @@ const App = () => {
             })
           }
         </div>
-
       </main>
     </div>
   )
