@@ -16,7 +16,7 @@ exports.handler = (event, context, callback) => {
         message: 'Some required fields were not supplied.',
       }),
     });
-  }
+}
 
   stripe.charges
     .create({

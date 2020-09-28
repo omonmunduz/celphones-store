@@ -20,17 +20,35 @@
   }
   .App-shop {
     width: 90vw;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 4rem auto;
   }
   .App-products {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
   }
   .App-cartImg {
     width: 80px;
     position: absolute;
     left: 150px;
+  }
+  @media only screen and (max-width:920px) {
+    .App-header-text {
+      font-size: 2.5rem;
+    }
+    .App-cartImg {
+      left: 20px;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .App-header {
+      margin-top: 0;
+    }
+    .App-cartImg {
+      left: 20px;
+      width: 60px;
+      top: 90px;
+    }
   }

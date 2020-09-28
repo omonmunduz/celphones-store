@@ -1,6 +1,7 @@
 .Product {
-    flex-basis: 16%;
+  flex-basis: 16%;
   margin-bottom: 1.5rem;
+  margin-right: 1.5rem;
   text-align: center;
   padding: 0.55rem 1.5rem;
   background-color: #fff;
@@ -11,6 +12,7 @@
   border: none;
   transition: all 0.3s ease 0s;
 }
+
 .Product:hover {
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     transform: translateY(-7px);
