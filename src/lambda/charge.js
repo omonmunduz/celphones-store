@@ -1,7 +1,8 @@
 require('dotenv').config();
-const stripe = require('stripe')('sk_test_51HTWiMFQPbet7K3aq6AzS2SiboIOQoGAGmQg1sdWa7uSX1DvgLAw8OPepzoviwYGJsbyTn6INirZlLYTa2nK5ILN00dDigmseA'); // add your secret key here
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); 
 
 exports.handler = (event, context, callback) => {
+  context.callbackWaitsForEmptyEventLoop = false;
   // Only allow POST
   if (event.httpMethod !== 'POST') {
     return callback(null, { statusCode: 405, body: 'Method Not Allowed' });
@@ -22,7 +23,7 @@ exports.handler = (event, context, callback) => {
     .create({
       amount: parseInt(data.amount),
       currency: 'usd',
-      description: 'Dreamcast game shop',
+      description: 'Dreamcast shop',
       source: data.token,
     })
     .then(({ status }) => {
