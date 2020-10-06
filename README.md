@@ -25,5 +25,13 @@ This will open a local server running at http://localhost:9000 serving your Lamb
 * stripe
 
 
+## Basic test card numbers
+Number | Brand | CVC | Date
+------- ------- ----- ------
+4242424242424242 |Visa | Any 3 digits | Any future date
+4000056655665556 | Visa (debit) | Any 3 digits | Any future date
+5555555555554444 | Mastercard | Any 3 digits | Any future date
+371449635398431 | American Express | Any 4 digits |  Any future date
+
 
 
